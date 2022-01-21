@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 module.exports = {
     async getSingleUser({ user = null, params }, res) {
@@ -20,7 +21,8 @@ module.exports = {
             return res.status(400).json({ message: 'Something is wrong!' });
         }
 
-        res.json({ user });
+        const token = signToken(user);
+        res.json({ token, user });
     },
 
     async login({ body}, res) {
@@ -35,6 +37,7 @@ module.exports = {
             return res.status(400).json({ message: 'Wrong password!' });
         }
 
+        const token = signToken(user);
         res.json({ user });
     }
-}
+};
