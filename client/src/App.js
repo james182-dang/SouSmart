@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { fetch } from 'cross-fetch';
-import Meal from './components/Meal';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
