@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { fetch } from 'cross-fetch';
 import Meal from './components/Meal';
 
 const httpLink = createHttpLink({
@@ -26,7 +27,11 @@ const client = new ApolloClient({
 function App() {
 
   return (
-    <h1>Hello. This is SouSmart v1.</h1>
+    <ApolloProvider client={client}>
+      <div>
+        <h1>Hello. This is SouSmart v1.</h1>
+      </div>
+    </ApolloProvider>
   );
 }
 
