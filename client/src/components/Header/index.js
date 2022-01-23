@@ -14,7 +14,7 @@ const Header = () => {
                 <nav className="text-center">
                     {Auth.loggedIn() ? (
                         <>
-                            <a href="/" onClick={logout}>
+                            <a href="/" onClick={Auth.logout}>
                                 Logout
                             </a>
                         </>

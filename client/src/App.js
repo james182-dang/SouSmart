@@ -4,6 +4,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SearchRecipes from './pages/SearchRecipes';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -31,12 +32,12 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className="container">
-            <Switch>
-
-              <Route exact path="/" component={Home} />
-            </Switch>
-          </div>
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={SearchRecipes} />
+              </Switch>
+            </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
