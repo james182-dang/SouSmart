@@ -2,7 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Meal from './components/Meal';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import SearchRecipes from './pages/SearchRecipes';
+import IngredientsList from './pages/IngredientsList';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -26,7 +29,20 @@ const client = new ApolloClient({
 function App() {
 
   return (
-    <h1>Hello. This is SouSmart v1.</h1>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={SearchRecipes} />
+                <Route exact path="/ingredients" component={IngredientsList} />
+              </Switch>
+            </div>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 

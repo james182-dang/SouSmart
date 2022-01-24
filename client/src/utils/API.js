@@ -8,15 +8,6 @@ export const getMe = (token) => {
     });
 };
 
-export const getAllUsers = () => {
-    return fetch('/api/users', {
-        headers: {
-            method: 'GET',
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
-        }
-    })
-}
 export const createUser = (userData) => {
     return fetch('/api/users', {
         method: 'POST',
@@ -34,6 +25,17 @@ export const loginUser = (userData) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData)
+    });
+};
+
+export const saveRecipe = (recipeData, token) => {
+    return fetch('/api/users', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(recipeData)
     });
 };
 
