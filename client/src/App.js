@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
 import IngredientsList from './pages/IngredientsList';
