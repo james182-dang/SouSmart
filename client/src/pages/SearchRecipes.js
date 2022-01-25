@@ -53,7 +53,8 @@ const SearchRecipes = () => {
                                 type='text'
                                 size='lg'
                                 placeholder='Search for a recipe.'
-                            />
+                              />
+                              
                           </Col>
                           <Col xs={12} md={4}>
                               <Button type='submit' variant='success' size='lg'>
