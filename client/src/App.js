@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
 import IngredientsList from './pages/IngredientsList';
+import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -31,8 +32,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+          <Navbar />
             <div className="container">
               <Switch>
                 <Route exact path="/" component={SearchRecipes} />
@@ -40,7 +40,6 @@ function App() {
               </Switch>
             </div>
           <Footer />
-        </div>
       </Router>
     </ApolloProvider>
   );
