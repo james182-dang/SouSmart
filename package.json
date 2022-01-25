@@ -6,7 +6,11 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "bcrypt": "^5.0.1",
+=======
+    "dotenv": "^14.3.0",
+>>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",

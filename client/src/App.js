@@ -2,7 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+<<<<<<< HEAD
 import Header from './components/Header';
+=======
+>>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
 import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
 import IngredientsList from './pages/IngredientsList';

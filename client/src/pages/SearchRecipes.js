@@ -53,7 +53,12 @@ const SearchRecipes = () => {
                                 type='text'
                                 size='lg'
                                 placeholder='Search for a recipe.'
+<<<<<<< HEAD
                             />
+=======
+                              />
+                              
+>>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
                           </Col>
                           <Col xs={12} md={4}>
                               <Button type='submit' variant='success' size='lg'>

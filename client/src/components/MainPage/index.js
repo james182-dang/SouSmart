@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import Auth from '../utils/auth';
 
-const IngredientsList = () => {
+const MainPage = () => {
     
     const [searchInput, setSearchInput] = useState('');
 
@@ -17,14 +17,14 @@ const IngredientsList = () => {
 
     return (
         <>
-          <Jumbotron fluid className='text-light bg-dark'>
+          <Jumbotron >
             <Container>
-                <h1>Add ingredients from your pantry</h1>
+                <h1>Main Page</h1>
                 <Form onSubmit={handleFormSubmit}>
                     <Form.Row>
                         <Col xs={12} md={8}>
                             <Form.Control
-                              name='ingredientSearchBar'
+                              name='recipeSelection'
                               value={searchInput}
                               onChange={(e) => setSearchInput(e.target.vaue)}
                               type='text'
@@ -34,7 +34,7 @@ const IngredientsList = () => {
                         </Col>
                         <Col xs={12} md={4}>
                             <Button type='submit' variant='success' size='lg'>
-                                Submit Ingredient
+                                Submit
                             </Button>
                         </Col>
                     </Form.Row>
@@ -45,4 +45,4 @@ const IngredientsList = () => {
     );
 };
 
-export default IngredientsList;
+export default MainPage;

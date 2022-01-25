@@ -52,7 +52,6 @@
 
 * {
   box-sizing: border-box;
-  background-image: url("/assets/img/secondarylogo.png");
 }
 
 html,
@@ -154,9 +153,7 @@ img {
   max-width: 100%;
 }
 
-span[role="img"] {
-  cursor: default;
-}
+
 
 form {
   width: 40%;
@@ -245,22 +242,24 @@ input:focus {
   color: var(--error);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) 
+{
+  
   .card {
     width: 100%;
   }
 
 }
 
-footer {
+.footer {
   text-align: center;
 }
 
-nav {
+.Navbar {
   text-align: center;
 }
 
-Form {
+.Form {
   text-align: center;
 }
 
