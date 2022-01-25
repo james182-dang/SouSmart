@@ -4,12 +4,13 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [loginUser, { error, data }] = useMutation(LOGIN_USER);
+    // eslint-disable-next-line
+    const [loginUser, { error }] = useMutation(LOGIN_USER);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -30,7 +31,7 @@ const LoginForm = () => {
                 variables: { ...userFormData }
             })
 
-            Auth.login(data.loginUser.token);
+            Auth.login(data.login.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
@@ -38,7 +39,6 @@ const LoginForm = () => {
 
         setUserFormData({
             username: '',
-            email: '',
             password: ''
         });
     };
