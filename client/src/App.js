@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
 import IngredientsList from './pages/IngredientsList';
 import Navbar from './components/Navbar';
+import photo from '../src/secondarylogo.png'
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -41,7 +42,15 @@ function App() {
             </div>
           <Footer />
       </Router>
+
+      <div className = 'flex-row'
+        style={{
+          photo: `url(${photo})`,
+        }}> 
+        </div>
     </ApolloProvider>
+  
+
   );
 }
 

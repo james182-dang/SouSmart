@@ -13,6 +13,10 @@ const headerStyle = {
         
     }
 
+const h1Style = {
+    backgroundImage: 'url(' + { Background } + ')'
+}
+
 
 
 const Header = () => {

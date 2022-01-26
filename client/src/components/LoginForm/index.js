@@ -8,7 +8,8 @@ const loginStyle = {
     alignContent: 'center',
     justifyContent: 'center',
     paddingTop: 20,
-    marginTop: 20
+    marginTop: 20,
+    textAlign: 'center'
 }
 
 const LoginForm = (props) => {

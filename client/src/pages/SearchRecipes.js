@@ -2,6 +2,32 @@ import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import { searchSpoonacular } from '../utils/API';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns, ToggleButton } from 'react-bootstrap';
+import { findByLabelText } from '@testing-library/react';
+
+
+const recipeStyle = {
+        display: 'flex',
+        border: '2px solid black',
+        padding: '5px, 30px, 5px',
+        margin: 'auto',
+        maxWidth: '500px',
+        textAlign: 'center'
+   
+    }
+
+const h1Style = {
+    display: "flex",
+    alignItems: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    maxWidth: ''
+}
+
+const btnStyle = {
+    border: '2px solid black',
+    backgroundColor: '#F29559'
+}
+
 
 const SearchRecipes = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -40,10 +66,17 @@ const SearchRecipes = () => {
         }
     };
 
+   
+    
+
     return (
         <>
+
+    
+        <div>
           <Jumbotron fluid className='text-light bg-dark'>
-              <Container>
+              <Container style = {recipeStyle}>
+                  <div style = {h1Style} >
                   <h1>Search for Recipes.</h1>
                   <Form onSubmit={handleFormSubmit}>
                       <Form.Row>
@@ -75,15 +108,16 @@ const SearchRecipes = () => {
 
                           </Col>
                           <Col xs={12} md={4}>
-                              <Button type='submit' variant='success' size='lg'>
+                              <Button style = {btnStyle} type='submit' variant='success' size='lg'>
                                   Submit Search
                               </Button>
                           </Col>
                       </Form.Row>
                   </Form>
+                  </div>
               </Container>
           </Jumbotron>
-
+        </div>
           <Container>
               <h2>
                   {searchedRecipes.length
