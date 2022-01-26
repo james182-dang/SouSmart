@@ -55,14 +55,13 @@ const SearchRecipes = () => {
                                 type='text'
                                 size='lg'
                                 placeholder='Search for a recipe.'
-<<<<<<< HEAD
+
                             />
-=======
-                              />
-<<<<<<< HEAD
+
+                            
+
                               
->>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
-=======
+
                               <ToggleButton
                                 id='pantryBtn'
                                 type='checkbox'
@@ -73,7 +72,7 @@ const SearchRecipes = () => {
                               >
                                   Use My Pantry
                               </ToggleButton>
->>>>>>> ad03c0779fd1fdd46ba15e7c6d094251b7dbaae4
+
                           </Col>
                           <Col xs={12} md={4}>
                               <Button type='submit' variant='success' size='lg'>

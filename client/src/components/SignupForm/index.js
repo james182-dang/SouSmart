@@ -35,10 +35,7 @@ const SignupForm = () => {
             Auth.login(data.addUser.token);
         } catch (err) {
             console.error(err);
-<<<<<<< HEAD
             setShowAlert(true);
-=======
->>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
         }
 
         setUserFormData({
