@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import Auth from '../utils/auth';
-import { useMutation } from '@apollo/client';
-import { ADD_INGREDIENT } from '../utils/mutations';
-
 
 const IngredientsList = () => {
     
-    const [ingredientInput, setIngredientInput] = useState({ingredient: ''});
-    
-    const [addIngredient, { error, data }] = useMutation(ADD_INGREDIENT);
+    const [searchInput, setSearchInput] = useState('');
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        if (!ingredientInput) {
+        if (!searchInput) {
             return false;
         }
 
-        let ingredientSearchValue = $('#ingredientSearchBar').val().trim();
+        // let ingredientSearchValue = $('#ingredientSearchBar').val().trim();
 
-        ingredientSearchValue.push(User.savedIngredients);
+        // ingredientSearchValue.push(User.savedIngredients);
     };
 
     return (
@@ -33,8 +28,8 @@ const IngredientsList = () => {
                         <Col xs={12} md={8}>
                             <Form.Control
                               name='ingredientSearchBar'
-                              value={ingredientInput}
-                              onChange={(e) => setIngredientInput(e.target.vaue)}
+                              value={searchInput}
+                              onChange={(e) => setSearchInput(e.target.vaue)}
                               type='text'
                               size='lg'
                               placeholder='Add ingredients here.'
