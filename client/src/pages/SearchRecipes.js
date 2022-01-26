@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 import { searchSpoonacular } from '../utils/API';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import { Jumbotron, Container, Col, Form, Button, Card, CardColumns, ToggleButton } from 'react-bootstrap';
 
 const SearchRecipes = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
 
     const [searchInput, setSearchInput] = useState('');
+
+    const [checked, setChecked] = useState(false);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -57,8 +59,21 @@ const SearchRecipes = () => {
                             />
 =======
                               />
+<<<<<<< HEAD
                               
 >>>>>>> fc99a649b3ab3a58014ff9eafda13901b49d9eaa
+=======
+                              <ToggleButton
+                                id='pantryBtn'
+                                type='checkbox'
+                                variant='primary'
+                                checked={checked}
+                                value='1'
+                                onChange={(e) => setChecked(e.currentTarget.checked)}
+                              >
+                                  Use My Pantry
+                              </ToggleButton>
+>>>>>>> ad03c0779fd1fdd46ba15e7c6d094251b7dbaae4
                           </Col>
                           <Col xs={12} md={4}>
                               <Button type='submit' variant='success' size='lg'>
