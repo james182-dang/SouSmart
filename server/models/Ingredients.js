@@ -1,9 +1,9 @@
 const { Schema } = require('mongoose');
 
-const ingredientsSchema = new Schema({
+const ingredientSchema = new Schema({
     name: {
         type: String
     }
 });
 
-module.exports = ingredientsSchema;
+module.exports = ingredientSchema;

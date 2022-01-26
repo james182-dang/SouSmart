@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignupForm from '../SignupForm';
 import LoginForm from '../LoginForm';
+import IngredientsForm from '../IngredientsForm';
 
 import Auth from '../../utils/auth';
 
@@ -43,6 +44,9 @@ const AppNavBar = () => {
                           </Nav.Link>
                           {Auth.loggedIn() ? (
                               <>
+                                <Nav.Link as={Link} to='/IngredientsForm'>
+                                    Add To Your Pantry
+                                </Nav.Link>
                                 <Nav.Link as={Link} to='/saved'>
                                     See Your Recipes
                                 </Nav.Link>

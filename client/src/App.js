@@ -5,9 +5,9 @@ import { setContext } from '@apollo/client/link/context';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
-import IngredientsList from './pages/IngredientsList';
 import Navbar from './components/Navbar';
 import photo from '../src/secondarylogo.png'
+import IngredientsList from './components/IngredientsForm';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -37,7 +37,7 @@ function App() {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={SearchRecipes} />
-                <Route exact path="/ingredients" component={IngredientsList} />
+                <Route exact path="/ingredientsForm" component={IngredientsList} />
               </Switch>
             </div>
           <Footer />
