@@ -7,6 +7,8 @@ import Auth from '../../utils/auth';
 const IngredientsForm = () => {
     const [ingredientFormData, setIngredientFormData] = useState({ ingredient: ''});
 
+    const [ingredientInput, setIngredientInput] = useState('');
+
     const [validated] = useState(false);
 
     const [showAlert, setShowAlert] = useState(false);
@@ -51,14 +53,13 @@ const IngredientsForm = () => {
                 </Alert>
 
                 <Form.Group>
-                    <Form.Label htmlFor='ingredient'>Ingredient</Form.Label>
+                    <Form.Label htmlFor='ingredient'>Ingredient: </Form.Label>
                     <Form.Control
                         type='text'
                         placeholder='Your Ingredient'
                         name='ingredient'
                         onChange={handleInputChange}
                         value={ingredientFormData.ingredient}
-                        required
                     />
                     <Form.Control.Feedback type='invalid'>Ingredient is required!</Form.Control.Feedback>
                 </Form.Group>

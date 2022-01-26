@@ -16,9 +16,7 @@ export const ADD_INGREDIENTS = gql`
     mutation addIngredients($ingredient: String!) {
         addIngredients(ingredient: $ingredient){
             token
-            ingredients {
-                ingredient
-            }
+            ingredient
         }
     }
 `;
