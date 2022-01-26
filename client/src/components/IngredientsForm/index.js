@@ -53,7 +53,7 @@ const IngredientsForm = () => {
                 <Form.Group>
                     <Form.Label htmlFor='ingredient'>Ingredient</Form.Label>
                     <Form.Control
-                        type='ingredient'
+                        type='text'
                         placeholder='Your Ingredient'
                         name='ingredient'
                         onChange={handleInputChange}
