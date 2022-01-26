@@ -12,11 +12,14 @@ export const LOGIN_USER = gql`
     }
 `;
 
-export const ADD_INGREDIENTS = gql`
-    mutation addIngredients($ingredient: String!) {
-        addIngredients(ingredient: $ingredient){
-            token
-            ingredient
+export const ADD_INGREDIENT = gql`
+    mutation addIngredient($newIngredient: AddIngredient!) {
+        addIngredient(newIngredient: $newIngredient) {
+            _id
+            username
+            savedIngredients {
+                name
+            }
         }
     }
 `;

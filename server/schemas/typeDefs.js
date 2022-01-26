@@ -7,6 +7,12 @@ const typeDefs = gql`
         username: String
         email: String!
         password: String!
+        ingredientCount: Int
+        savedIngredients: [Ingredient]
+    }
+
+    type Ingredient {
+        name: String
     }
 
     type Query {
@@ -20,9 +26,14 @@ const typeDefs = gql`
         user: User
     }
 
+    input AddIngredient {
+        newIngredient: String
+    }
+
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
+        addIngredient(newIngredient: AddIngredient!): User
     }
 
 

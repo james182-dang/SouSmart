@@ -1,75 +1,73 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Jumbotron, Container, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { ADD_INGREDIENTS } from '../../utils/mutations';
+import { ADD_INGREDIENT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const IngredientsForm = () => {
     const [ingredientFormData, setIngredientFormData] = useState({ ingredient: ''});
 
+    const [searchedIngredients, setSearchedIngredients] = useState([]);
+
     const [ingredientInput, setIngredientInput] = useState('');
 
     const [validated] = useState(false);
 
-    const [showAlert, setShowAlert] = useState(false);
+    const [addIngredient, { error }] = useMutation(ADD_INGREDIENT);
 
-    const [addIngredients, { error, data }] = useMutation(ADD_INGREDIENTS);
+    const handleAddIngredient = async (name) => {
+        const ingredientToSave = {ingredientInput}
 
-    const handleInputChange = (event) => {
-        const { ingredients, value } = event.target;
-        setIngredientFormData({ ...ingredientFormData, [ingredients]: value });
-    };
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+        if (!token) {
+            return false;
         }
 
         try {
-            const { data } = await addIngredients({
-                vaiables: { ...ingredientFormData }
-            })
-
-            Auth.login(data.addIngredients.token);
-        }
-        catch (err) {
+            const response = await addIngredient({
+                variables: { newIngredient: { ...ingredientToSave } },
+            });
+        } catch (err) {
             console.error(err);
         }
-
-        setIngredientFormData({
-            ingredient: ''
-        });
     };
 
     return (
         <>
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-                <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                    Something went wrong with your ingredients.
-                </Alert>
+          <Jumbotron fluid className='text-light bg-dark'>
+              <Container>
+                  <h1>Add ingredients to your pantry.</h1>
+                  <Form onSubmit={handleAddIngredient}>
+                      <Form.Row>
+                          <Col xs={12} md={8}>
+                              <Form.Control
+                                name='ingredientInput'
+                                value={ingredientInput}
+                                onChange={(e) => setIngredientInput(e.target.value)}
+                                type='text'
+                                size='lg'
+                                placeholder=''
+                              />
+                          </Col>
+                          <Col xs={12} md={4}>
+                              <Button type='submit' variant='success' size='lg'>
+                                  Submit Ingredient
+                              </Button>
+                          </Col>
+                      </Form.Row>
+                  </Form>
+              </Container>
+          </Jumbotron>
 
-                <Form.Group>
-                    <Form.Label htmlFor='ingredient'>Ingredient: </Form.Label>
-                    <Form.Control
-                        type='text'
-                        placeholder='Your Ingredient'
-                        name='ingredient'
-                        onChange={handleInputChange}
-                        value={ingredientFormData.ingredient}
-                    />
-                    <Form.Control.Feedback type='invalid'>Ingredient is required!</Form.Control.Feedback>
-                </Form.Group>
-                <Button
-                    disabled={!(ingredientFormData.ingredient)}
-                    type='submit'
-                    variant='success'>
-                    Submit
-                </Button>
-            </Form>
+          <Container>
+              <h2>
+                  {searchedIngredients.length
+                    ? `Viewing ${searchedIngredients.length} ingredients:`
+                    : 'Add an ingredient to begin!'}
+              </h2>
+          </Container>
+          
         </>
     );
 };
