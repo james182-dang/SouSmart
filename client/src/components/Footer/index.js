@@ -8,12 +8,7 @@ const Footer = () => {
         style={{
             minHeight: 100,
             paddingTop: 100,
-            alignContent: 'center',
-
-           
-
-    
-         
+            alignContent: 'center' 
         }}>
             <div className="container">&copy;2022 by Matt Roland, Alex Sabel, and James Lindsey</div>
         </footer>

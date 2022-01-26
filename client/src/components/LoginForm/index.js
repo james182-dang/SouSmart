@@ -4,10 +4,11 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-var loginStyle = {
+const loginStyle = {
     alignContent: 'center',
     justifyContent: 'center',
-    paddingTop: 20
+    paddingTop: 20,
+    marginTop: 20
 }
 
 const LoginForm = (props) => {
@@ -51,6 +52,7 @@ const LoginForm = (props) => {
 
     return (
         <>
+        <div style={loginStyle}>
           <Form style = {loginStyle} noValidate validated={validated} onSubmit={handleFormSubmit}>
               <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                   Something went wrong with your login credentials!
@@ -87,6 +89,7 @@ const LoginForm = (props) => {
                 Submit
               </Button>
           </Form>
+          </div>
         </>
     );
 };

@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 import Background from '../../primarylogo.png'
 
 
-var headerStyle = {
+const headerStyle = {
 
         minHeight: 100,
         paddingTop: 100,
