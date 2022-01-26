@@ -51,7 +51,7 @@ const IngredientsForm = () => {
                 </Alert>
 
                 <Form.Group>
-                    <Form.Label htmlFor='ingreient'>Ingredient</Form.Label>
+                    <Form.Label htmlFor='ingredient'>Ingredient</Form.Label>
                     <Form.Control
                         type='ingredient'
                         placeholder='Your Ingredient'
