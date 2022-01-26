@@ -2,10 +2,14 @@ import React from 'react';
 
 const footerStyle = {
 
-        minHeight: 100,
-        paddingTop: 100,
+        minHeight: 50,
+        paddingTop: 150,
         display: 'flex',
-        margin: 'auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        position: 'fixed',
+        bottom: 0,
+        
         
 }
 
@@ -14,7 +18,7 @@ const Footer = () => {
         <footer className="w-100 mt-auto bg-secondary p-4" 
         
 >
-            <div className="container">&copy;2022 by Matt Roland, Alex Sabel, and James Lindsey</div>
+            <div style = { footerStyle } className="container">&copy;2022 by Matt Roland, Alex Sabel, and James Lindsey</div>
         </footer>
     );
 };
