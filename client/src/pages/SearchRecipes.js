@@ -109,7 +109,7 @@ const SearchRecipes = () => {
                           </Col>
                           <Col xs={12} md={4}>
                               <Button style = {btnStyle} type='submit' variant='success' size='lg'>
-                                  Submit Search
+                                  Submit Search!
                               </Button>
                           </Col>
                       </Form.Row>
