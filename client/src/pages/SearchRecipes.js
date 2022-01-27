@@ -5,28 +5,6 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns, ToggleButto
 import { findByLabelText } from '@testing-library/react';
 
 
-const recipeStyle = {
-        display: 'flex',
-        border: '2px solid black',
-        padding: '5px, 30px, 5px',
-        margin: 'auto',
-        maxWidth: '500px',
-        textAlign: 'center'
-   
-    }
-
-const h1Style = {
-    display: "flex",
-    alignItems: 'center',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    maxWidth: ''
-}
-
-const btnStyle = {
-    border: '2px solid black',
-    backgroundColor: '#F29559'
-}
 
 
 const SearchRecipes = () => {
@@ -75,8 +53,8 @@ const SearchRecipes = () => {
     
         <div>
           <Jumbotron fluid className='text-light bg-dark'>
-              <Container style = {recipeStyle}>
-                  <div style = {h1Style} >
+              <Container>
+                  <div>
                   <h1>Search for Recipes.</h1>
                   <Form onSubmit={handleFormSubmit}>
                       <Form.Row>
@@ -108,7 +86,7 @@ const SearchRecipes = () => {
 
                           </Col>
                           <Col xs={12} md={4}>
-                              <Button style = {btnStyle} type='submit' variant='success' size='lg'>
+                              <Button type='submit' variant='success' size='lg'>
                                   Submit Search!
                               </Button>
                           </Col>
@@ -118,28 +96,7 @@ const SearchRecipes = () => {
               </Container>
           </Jumbotron>
         </div>
-          <Container>
-              <h2>
-                  {searchedRecipes.length
-                    ? `Viewing ${searchedRecipes.length} results:`
-                    : 'Search for a recipe to begin'}
-              </h2>
-              <CardColumns>
-                  {searchedRecipes.map((recipe) => {
-                      return (
-                          <Card key={recipe.recipeId} border='dark'>
-                              {recipe.image ? (
-                                  <Card.Img src={recipe.image} alt={`Image of ${recipe.title}`} variant='top' />
-                              ) : null}
-                              <Card.Body>
-                                  <Card.Title>{recipe.title}</Card.Title>
-                                  <p className='small'>Author: {recipe.author}</p>
-                              </Card.Body>
-                          </Card>
-                      );
-                  })}
-              </CardColumns>
-          </Container>
+
         </>
     );
 };

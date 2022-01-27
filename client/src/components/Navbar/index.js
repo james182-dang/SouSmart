@@ -7,30 +7,12 @@ import IngredientsForm from '../IngredientsForm';
 
 import Auth from '../../utils/auth';
 
-const navStyle = {
-    display: 'flex',
-    border: '2px solid black',
-    padding: '5px, 30px, 5px',
-
-    maxWidth: '200px',
-    maxHeight: '300px',
-    textAlign: 'start',
-    justifyContent: 'left'
-}
-
-const loginStyle = {
-    display: 'flex'
-    
-
-}
-
-
 const AppNavBar = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-        <div style = { navStyle }>
+        <div>
           <Navbar bg='dark' variant='dark' expand='lg'>
               <Container fluid>
                   <Navbar.Brand as={Link} to='/'>
@@ -53,7 +35,7 @@ const AppNavBar = () => {
                                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                               </>
                           ) : (
-                              <div style={ loginStyle}>
+                              <div>
                               <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
                               </div>
                           )}

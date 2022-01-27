@@ -4,18 +4,6 @@ import Auth from '../../utils/auth';
 import Background from '../../primarylogo.png'
 
 
-const headerStyle = {
-
-        minHeight: 100,
-        paddingTop: 100,
-        alignContent: 'center',
-        backgroundImage: "url(" + { Background } + ")"
-        
-    }
-
-const h1Style = {
-    backgroundImage: 'url(' + { Background } + ')'
-}
 
 
 
