@@ -4,6 +4,15 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
+
+const signUpStyle = {
+    alignContent: 'center',
+    justifyContent: 'center',
+    paddingTop: 20,
+    marginTop: 20,
+    textAlign: 'center'
+}
+
 const SignupForm = () => {
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
 
@@ -35,6 +44,7 @@ const SignupForm = () => {
             Auth.login(data.addUser.token);
         } catch (err) {
             console.error(err);
+            setShowAlert(true);
         }
 
         setUserFormData({
@@ -46,11 +56,13 @@ const SignupForm = () => {
 
     return (
         <>
+       
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                     Something went wrong with your signup.
                 </Alert>
 
+            <div style = { signUpStyle }>
                 <Form.Group>
                     <Form.Label htmlFor='username'>Username</Form.Label>
                     <Form.Control
@@ -89,13 +101,16 @@ const SignupForm = () => {
                     />
                     <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                 </Form.Group>
+                
                 <Button
                   disabled={!(userFormData.username && userFormData.email && userFormData.password)}
                   type='submit'
                   variant='success'>
                   Submit  
                 </Button>      
-            </Form>
+           </div>
+                </Form>
+             
         </>
     );
 };

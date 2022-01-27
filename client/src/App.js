@@ -2,9 +2,11 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchRecipes from './pages/SearchRecipes';
 import Navbar from './components/Navbar';
+import photo from '../src/secondarylogo.png'
 import IngredientsList from './components/IngredientsForm';
 
 const httpLink = createHttpLink({
@@ -40,7 +42,15 @@ function App() {
             </div>
           <Footer />
       </Router>
+
+      <div className = 'flex-row'
+        style={{
+          photo: `url(${photo})`,
+        }}> 
+        </div>
     </ApolloProvider>
+  
+
   );
 }
 
