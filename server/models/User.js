@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const ingredientSchema = require('./Ingredients');
+
 const userSchema = new Schema(
     {
         username: {
@@ -18,6 +20,7 @@ const userSchema = new Schema(
             type: String,
             required: true
         },
+        savedIngredients: [ingredientSchema]
     },
     {
         toJSON: {
@@ -38,6 +41,10 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('ingredientsCount').get(function () {
+    return this.savedIngredients.length;
+});
 
 const User = model('User', userSchema);
 
