@@ -115,14 +115,6 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
-  background: var(--primary);
-}
-
-header a {
-  color: var(--light);
-}
-
 button {
   font-size: 1rem;
   text-decoration: none;

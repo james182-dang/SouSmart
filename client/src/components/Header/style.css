@@ -1,0 +1,35 @@
+header {
+    background-color: #0fb46f;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: wrap;
+}
+
+header a {
+    color: #fafafa;
+}
+
+header h1 {
+    padding-left: 3rem;
+}
+
+header nav {
+    margin: auto 2rem;
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    padding: 0 1rem;
+    text-decoration: none;
+}

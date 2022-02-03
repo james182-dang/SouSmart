@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_INGREDIENT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-const IngredientsForm = () => {
+function IngredientsForm(props) {
     const [ingredientFormData, setIngredientFormData] = useState({ ingredient: ''});
 
     const [searchedIngredients, setSearchedIngredients] = useState([]);
@@ -34,43 +34,35 @@ const IngredientsForm = () => {
     };
 
     return (
-        <>
-          <Jumbotron fluid className='text-light bg-dark'>
-              <Container>
-                  <h1>Add ingredients to your pantry.</h1>
-                  <Form onSubmit={handleAddIngredient}>
-                      <Form.Row>
-                          <Col xs={12} md={8}>
-                              <Form.Control
-                                name='ingredientInput'
-                                value={ingredientInput}
-                                onChange={(e) => setIngredientInput(e.target.value)}
-                                type='text'
-                                size='lg'
-                                placeholder=''
-                              />
-                          </Col>
-                          <Col xs={12} md={4}>
-                              <Button
-                                type='submit' variant='success' size='lg'>
+        <div>
+            <Container>
+                <h1>Add Ingredients to your Pantry</h1>
+                <Form onSubmit={handleAddIngredient}>
+                    <Form.Row>
+                        <Col xs={12} md={8}>
+                            <Form.Control
+                              name='ingredientInput'
+                              value={ingredientInput}
+                              onChange={(e) => setIngredientInput(e.target.value)}
+                              type='text'
+                              size='lg'
+                              placeholder=''
+                            />
+                        </Col>
+                        <Col xs={12} md={4}>
+                            <Button type='submit' variant='success' size='lg'>
                                 Submit Ingredient
-                              </Button>
-                          </Col>
-                      </Form.Row>
-                  </Form>
-              </Container>
-          </Jumbotron>
-
-          <Container>
-              <h2>
-                  {searchedIngredients.length
-                    ? `Viewing ${searchedIngredients.length} ingredients:`
-                    : 'Add an ingredient to begin!'}
-              </h2>
-          </Container>
-          
-        </>
+                            </Button>
+                        </Col>
+                    </Form.Row>
+                </Form>
+            </Container>
+        </div>
     );
 };
 
 export default IngredientsForm;
+
+{/* <Jumbotron fluid className='text-light bg-dark'>
+
+</Jumbotron> */}

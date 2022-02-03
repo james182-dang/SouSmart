@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-
-const loginStyle = {
-    alignContent: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
-    marginTop: 20,
-    textAlign: 'center'
-}
+import './style.css'
 
 const LoginForm = (props) => {
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
@@ -25,7 +17,7 @@ const LoginForm = (props) => {
         setUserFormData({ ...userFormData, [name]: value });
     };
 
-    const handleFormSubmit = async (event) => {
+    const handleLoginSubmit = async (event) => {
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -52,47 +44,59 @@ const LoginForm = (props) => {
     };
 
     return (
-        <>
-        <div style={loginStyle}>
-          <Form style = {loginStyle} noValidate validated={validated} onSubmit={handleFormSubmit}>
-              <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                  Something went wrong with your login credentials!
-              </Alert>
-              <Form.Group>
-                  <Form.Label htmlFor='username'>Username</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='Your username'
-                    name='username'
-                    onChange={handleInputChange}
-                    value={userFormData.username}
-                    required
-                />
-                <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-              </Form.Group>
+        // base login form design by foolishdeveloper.com, thank you!
 
-              <Form.Group>
-                  <Form.Label htmlFor='password'>Password</Form.Label>
-                  <Form.Control
-                    type='password'
-                    placeholder='Your password'
-                    name='password'
-                    onChange={handleInputChange}
-                    value={userFormData.password}
-                    required
-                  />
-                  <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-              </Form.Group>
-              <Button
-                disabled={!(userFormData.username && userFormData.password)}
-                type='submit'
-                variant='success'>
-                Submit
-              </Button>
-          </Form>
-          </div>
-        </>
+        <main>
+            <div class="background">
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <form className="loginForm" onSubmit={handleLoginSubmit}>
+                <h3>Login Here</h3>
+                <label for="username">Username</label>
+                <input type="username" placeholder="Username" id="username" name='username' value={userFormData.username} onChange={handleInputChange} />
+
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" id="password" name='password' value={userFormData.password} onChange={handleInputChange} />
+
+                <button className="loginFormButton">Log In</button>
+            </form>
+        </main>
     );
 };
 
 export default LoginForm;
+
+{/* <main className='flex-row justify-center mb-4'>
+<div className='col-12 col-md-6'>
+    <div className='card'>
+        <h4 className='card-header'>Log In</h4>
+        <div className='card-body'>
+            <form onSubmit={handleFormSubmit}>
+                <input
+                  className='form-input'
+                  placeholder='Username'
+                  name='username'
+                  type='username'
+                  id='username'
+                  value={userFormData.username}
+                  onChange={handleInputChange}
+                />
+                <input
+                  className='form-input'
+                  placeholder='Password'
+                  name='password'
+                  type='password'
+                  id='password'
+                  value={userFormData.password}
+                  onChange={handleInputChange}
+                />
+                <button className='btn d-block w-100' type='submit'>
+                    Submit
+                </button>
+            </form>
+            {error && <div>Login Failed!</div>}
+        </div>
+    </div>
+</div>
+</main> */}
