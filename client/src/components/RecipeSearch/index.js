@@ -46,7 +46,15 @@ const RecipeSearch = () => {
 
     return (
         <main>
-            
+            <div>
+                Search for Recipes
+            </div>
+            <input
+              type='text'
+              placeholder='Search for a Recipe!'
+              id='recipeSearch'
+              name='recipeSearch'
+            />
         </main>
     );
 };

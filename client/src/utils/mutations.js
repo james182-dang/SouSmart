@@ -13,11 +13,11 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_INGREDIENT = gql`
-    mutation addIngredient($newIngredient: AddIngredient!) {
-        addIngredient(newIngredient: $newIngredient) {
+    mutation addIngredient($userId: ID!, $name: String!) {
+        addIngredient(userId: $userId, name: $name) {
             _id
-            username
-            savedIngredients {
+            ingredientCount
+            ingredients {
                 name
             }
         }
@@ -34,4 +34,4 @@ export const ADD_USER = gql`
             }
         }
     }
-        `;
+`;

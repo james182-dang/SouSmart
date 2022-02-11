@@ -20,7 +20,7 @@ const userSchema = new Schema(
             type: String,
             required: true
         },
-        savedIngredients: [ingredientSchema]
+        ingredients: [ingredientSchema]
     },
     {
         toJSON: {
@@ -43,7 +43,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 userSchema.virtual('ingredientsCount').get(function () {
-    return this.savedIngredients.length;
+    return this.ingredients.length;
 });
 
 const User = model('User', userSchema);

@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Ingredient } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -8,7 +8,7 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                   .select('-__v -password')
-                  .populate('savedIngredients');
+                  .populate('ingredients');
 
                 return userData;
             }
@@ -19,13 +19,17 @@ const resolvers = {
         users: async () => {
             return User.find()
               .select('-__v -password')
-              .populate('savedIngredients');
+              .populate('ingredients');
         },
 
         user: async (parent, { username }) => {
             return User.findOne({ username })
               .select('-__v -password')
-              .populate('savedIngredients');
+              .populate('ingredients');
+        },
+
+        ingredients: async () => {
+            return Ingredient.find().sort({ createdAt: -1 });
         }
     },
 
@@ -54,11 +58,11 @@ const resolvers = {
             return { token, user };
         },
         
-        addIngredient: async (parent, { newIngredient }, context) => {
+        addIngredient: async (parent, { userId, name }, context) => {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { savedIngredients: newIngredient } },
+                    { _id: userId },
+                    { $push: { ingredients: { name } } },
                     { new: true }
                 )
 

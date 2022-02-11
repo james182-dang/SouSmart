@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Col, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_INGREDIENT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { QUERY_INGREDIENTS } from '../../utils/queries';
+import { GET_ME } from '../../utils/queries';
 
-function IngredientsForm(props) {
-    const [ingredientFormData, setIngredientFormData] = useState({ ingredient: ''});
+const IngredientsForm = () => {
 
     const [searchedIngredients, setSearchedIngredients] = useState([]);
 
@@ -13,10 +14,27 @@ function IngredientsForm(props) {
 
     const [validated] = useState(false);
 
-    const [addIngredient, { error }] = useMutation(ADD_INGREDIENT);
+    const [addIngredient, { error }] = useMutation(ADD_INGREDIENT, {
+        update(cache, { data: { addIngredient } }) {
+            try {
+                const { ingredients } = cache.readQuery({ query: QUERY_INGREDIENTS });
+                cache.writeQuery({
+                    query: QUERY_INGREDIENTS,
+                    data: { ingredients: [addIngredient, ...ingredients] }
+                });
+            } catch (e) {
+                console.error(e);
+            }
 
-    const handleAddIngredient = async (name) => {
-        const ingredientToSave = {ingredientInput}
+            const { me } = cache.readQuery({ query: GET_ME });
+            cache.writeQuery({
+                query: GET_ME,
+                data: { me: { ...me, ingredients: [...me.ingredients, addIngredient] } }
+            });
+        }
+    });
+
+    const handleAddIngredient = async name => {
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -25,9 +43,11 @@ function IngredientsForm(props) {
         }
 
         try {
-            const response = await addIngredient({
-                variables: { newIngredient: { ...ingredientToSave } },
+            await addIngredient({
+                variables: { name },
             });
+
+            setIngredientInput('');
         } catch (err) {
             console.error(err);
         }
@@ -62,7 +82,3 @@ function IngredientsForm(props) {
 };
 
 export default IngredientsForm;
-
-{/* <Jumbotron fluid className='text-light bg-dark'>
-
-</Jumbotron> */}
