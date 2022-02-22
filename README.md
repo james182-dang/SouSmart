@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# SouSmart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Do you have plenty of things in your pantry, but still don't know what you can make?
 
-## Available Scripts
+SouSmart is here to help!
 
-In the project directory, you can run:
+SouSmart takes what is in your pantry and allows you to search for recipes by ingredients you
 
-### `npm start`
+already have at home. You no longer have to worry about checking a hundred recipes to find something
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+you can make with what you have. SouSmart does it all for you and gets a usable recipe in your hands!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can try SouSmart yourself at https://sousmart.herokuapp.com/.
 
-### `npm test`
+SouSmart is built using the following technologies:
+* React
+* GraphQL
+* MongoDB
+* HTML5
+* CSS
+* JavaScript
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Usage instructions:
 
-### `npm run build`
+<img width="1440" alt="Screen Shot 2022-02-22 at 8 56 37 AM" src="https://user-images.githubusercontent.com/88298540/155158604-2ae982d8-a659-4c1c-8842-fa1fb5ea2012.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+On the splash page, click the sign up or login buttons to either create an account or sign in to your
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+existing account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then, go to the ingredients panel in the navbar and add your ingredients to your pantry.
 
-### `npm run eject`
+Then, you can search for recipes and conditionally select which ingredients in your pantry
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+that you would like to include in your query.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+... and voila! SouSmart is helping you make the meals you didn't know you could make!
